@@ -1,20 +1,11 @@
 <template>
   <!-- <el-button :plain="true" @click="open">Show message</el-button>
   <el-button plain @click="open4"> Top Left </el-button> -->
-  <el-tabs
-    v-model="activeName"
-    class="box"
-    type="card"
-    @tab-click="handleClick"
-  >
-    <el-tab-pane
-      v-for="item in tableTabs"
-      :key="item.name"
-      :label="item.title"
-      :name="item.name"
-    >
+  <el-tabs v-model="activeName" class="box" type="card" @tab-change="handleChange">
+    <el-tab-pane v-for="item in tableTabs" :key="item.name" :label="item.title" :name="item.name">
+      <ItemList :select="item.name"  v-if="item.name == activeName" />
     </el-tab-pane>
-    <ItemList :select = "activeName"/>
+    
   </el-tabs>
 
 
@@ -22,9 +13,9 @@
 
 <script lang='ts' setup>
 import ItemList from "./ItemList.vue"
-import { ElMessage, ElNotification } from 'element-plus'
-import { ref } from 'vue'
-import type { TabsPaneContext } from 'element-plus'
+
+import { ref ,provide } from "vue";
+
 
 const activeName = ref('unfinish')
 const tableTabs = ref([
@@ -44,31 +35,19 @@ const tableTabs = ref([
     title: '已删除',
     name: 'delete',
   },
-
 ])
 
-const handleClick = (tab: TabsPaneContext, event: Event) => {
-  console.log(tab, event)
+const handleChange = (name: string) => {
+  console.log("点击", name)
 }
+const changeTabs = (tab: string) => {
+  console.log("change",tab)
+  activeName.value = tab;
+}
+provide('changeTabs', changeTabs)
 
 
-const open = () => {
-  ElMessage({
-    message: 'this is a message Test 2.0 !',
-    grouping: true,
-    type: 'success',
-    center: true,
-    showClose: true,
-  })
-}
-const open4 = () => {
-  ElNotification({
-    title: 'Custom Position',
-    message: "I'm at the top left corner",
-    type: 'info',
-    position: 'top-right',
-  })
-}
+
 </script>
 
 <style scoped>

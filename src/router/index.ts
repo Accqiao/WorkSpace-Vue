@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import Layout from '../pages/Layout/LayoutView.vue'
 
-const HelloWorld = () => import("../views/HelloWorld.vue")
+const HelloWorld = () => import("@/pages/HelloWorld/HelloWorld.vue")
 const ToDoList = () => import("@/pages/ToDoList/ToDoList.vue")
 
 const routes: Array<RouteRecordRaw> = [
@@ -21,7 +21,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/hello",
     name: "hello",
-    component: () => import("../views/indexView.vue"),
+    component: () => import("@/pages/HelloWorld/indexView.vue"),
     children: [
       {
         path:'/hello',
@@ -38,12 +38,12 @@ const routes: Array<RouteRecordRaw> = [
           // route level code-splitting
           // this generates a separate chunk (about.[hash].js) for this route
           // which is lazy-loaded when the route is visited.
-          component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+          component: () => import(/* webpackChunkName: "about" */ '@/pages/HelloWorld/AboutView.vue')
       },
       {
           name:'home',
           path:'home',
-          component: () => import("../views/HomeView.vue")
+          component: () => import("@/pages/HelloWorld/HomeView.vue")
       },
 
   ]
