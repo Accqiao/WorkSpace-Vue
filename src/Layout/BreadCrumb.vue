@@ -8,7 +8,7 @@
     </template>
 <script lang='ts' setup>
 //import {useRouter,useRoute} from 'vue-router';
-
+import { ArrowRight } from '@element-plus/icons-vue'
 </script>
 
 <style scoped>

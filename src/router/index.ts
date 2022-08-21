@@ -1,9 +1,9 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import Layout from '../pages/Layout/LayoutView.vue'
+import Layout from '../Layout/LayoutView.vue'
 
 const HelloWorld = () => import("@/pages/HelloWorld/HelloWorld.vue")
 const ToDoList = () => import("@/pages/ToDoList/ToDoList.vue")
-
+const ByValue = () => import("@/pages/ByValue/BoxView.vue")
 const routes: Array<RouteRecordRaw> = [
   // { path: "/", redirect: "/home" },
   {
@@ -14,6 +14,11 @@ const routes: Array<RouteRecordRaw> = [
         path:'todolist',
         name:'todolist',
         component: ToDoList
+      },
+      {
+        path:'byvalue',
+        name:'byvalue',
+        component: ByValue
       }
     ]
   },

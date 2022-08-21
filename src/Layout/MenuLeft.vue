@@ -12,9 +12,9 @@
         <el-icon><Notebook /></el-icon>
         <template #title>ToDoList</template>
     </el-menu-item>
-    <el-menu-item index="setting">
+    <el-menu-item index="byvalue">
       <el-icon><setting /></el-icon>
-      <template #title>设置</template>
+      <template #title>组件传值</template>
     </el-menu-item>
     <el-sub-menu index="hello">
       <template #title>
@@ -29,17 +29,18 @@
         <el-menu-item index="hello-about">hello-about</el-menu-item>
       </el-menu-item-group>
     </el-sub-menu>
+    <el-menu-item index="collapse">
+      <el-icon v-if="isCollapse"><ArrowRight /></el-icon>
+      <el-icon v-else><ArrowLeft /></el-icon>
+      <template #title>Collapse</template>
+    </el-menu-item>
   </el-menu>
-  <el-radio-group v-model="isCollapse" style="margin-bottom: 20px">
-    <el-radio-button :label="false">expand</el-radio-button>
-    <el-radio-button :label="true">collapse</el-radio-button>
-  </el-radio-group>
 </template>
 
 <script lang='ts' setup>
 import { ref } from 'vue'
 import {useRouter,useRoute} from "vue-router";
-import {Finished,Setting,Notebook,Box} from '@element-plus/icons-vue'
+import {ArrowLeft,ArrowRight,Setting,Notebook,Box} from '@element-plus/icons-vue'
 import { ElMessage } from 'element-plus'
 // const route = useRoute()
 const router = useRouter()
@@ -52,16 +53,22 @@ const notFunc = () => {
 }
 const handleSelect = (key: string) => {
   switch(key){
-        case "todolist":
-          router.push('/todolist')
-          break;
-        case "hello-home":
-          router.push({ path: '/hello/home' })
-          break;
-        case "hello-about":
-          router.push('/hello/about')
-          break;
-      }
+    case "collapse":
+      isCollapse.value = !isCollapse.value;
+      break;
+    case "todolist":
+      router.push('/todolist')
+      break;
+    case "byvalue":
+      router.push('/byvalue')
+      break;
+    case "hello-home":
+      router.push({ path: '/hello/home' })
+      break;
+    case "hello-about":
+      router.push('/hello/about')
+      break;
+  }
 }
 const handleOpen = (key: string, keyPath: string[]) => {
   console.log("handleOpen",key, keyPath)

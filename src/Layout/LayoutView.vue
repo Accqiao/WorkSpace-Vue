@@ -7,7 +7,7 @@
       <el-header>
         Top
       </el-header>
-      <BreadCrumb />
+      <!-- <BreadCrumb /> -->
       <el-main>
         <router-view></router-view>
       </el-main>
@@ -18,8 +18,8 @@
 
 <script lang='ts' setup>
 import MenuLeft from './MenuLeft.vue'
-import BreadCrumb from './BreadCrumb.vue'
-import { ArrowRight } from '@element-plus/icons-vue'
+//import BreadCrumb from './BreadCrumb.vue'
+
 </script>
 
 <style scoped>

@@ -46,11 +46,6 @@ const dataSource = reactive({
   }
 })
 
-const handleClick = () => {
-  console.log("change2")
-  emit('changeTabsEmit', "okkkkk")
-}
-
 
 const handleSizeChange = (val: number) => {
   pageSize.value = val;
