@@ -7,12 +7,14 @@
             <BoxLv1_1 />
             <BoxLv1_2 />
         </div>
+        <BoxLv1_3 />
     </div>
 </template>
 
 <script lang='ts' setup>
 import BoxLv1_1 from './BoxLv1_1.vue';
 import BoxLv1_2 from './BoxLv1_2.vue';
+import BoxLv1_3 from './BoxLv1_3.vue';
 
 </script>
 

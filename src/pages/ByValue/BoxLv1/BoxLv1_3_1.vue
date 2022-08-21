@@ -1,8 +1,6 @@
 <template>
-    <div class="box1_2">
-        <h2>← mitt兄弟组件</h2>
-        <el-button type="primary" plain @click="funAdd">加加加</el-button>
-        <el-button type="primary" plain @click="funSub">减减减</el-button>
+    <div class="box1_3_1">
+      <el-button type="primary" plain @click="funAdd">加加加</el-button>
       <el-input class="in" v-model="input" placeholder="Please input" />
     </div>
 </template>
@@ -28,14 +26,17 @@ function funSub() {
 
 .in{
   width: 50px;
-  margin: 10px auto;
+  /*margin: 10px auto;*/
 }
-.box1_2 {
-    margin:  10px;
-    width: 200px;
-    height: 160px;
-    background-color: #afdaa3;
+.box1_3_1 {
+    /*margin:0 auto;*/
+    width: 240px;
+    height: 80px;
+    background-color:  #95d475;
     border-radius: 10px;
-    text-align: center;
+  overflow: hidden;
+  display: flex;
+  justify-content:space-evenly;
+  align-items:center;
 }
 </style>
