@@ -1,31 +1,35 @@
 <template>
     <div class="box1_3">
-      <el-button type="primary" plain @click="funAdd">加加加</el-button>
-      <el-input class="in" v-model="input" placeholder="Please input" />
+      <el-button type="primary" plain @click="funSub">Vuex ↓</el-button>
+      <el-input class="in" v-model="input" />
       <BoxLv1_3_1 />
     </div>
 </template>
 
 <script lang='ts' setup>
 // 导入mitt
-import emitter from "@/utils/emitter";
 
 import { ref } from 'vue'
 import BoxLv1_3_1 from "@/pages/ByValue/BoxLv1/BoxLv1_3_1.vue";
-const input = ref(2)
+import store from "@/store";
 
-function funAdd() {
-  // mitt推送让列表更新
-  emitter.emit("addNum", input.value);
-}
-function funSub() {
-  emitter.emit("subNum", input.value);
+const input = ref(4)
+
+
+const funSub = ()=> {
+  store.dispatch('byValue/funcSub',input.value)
 }
 
 </script>
 
 <style scoped>
-
+.tag{
+  margin: 10px auto;
+  width: 70px;
+  height: 31px;
+  display: block;
+  line-height: 28px;
+}
 .in{
   width: 50px;
   /*margin: 0 auto;*/

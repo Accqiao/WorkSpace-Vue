@@ -1,33 +1,36 @@
 <template>
     <div class="box1_3_1">
-      <el-button type="primary" plain @click="funAdd">加加加</el-button>
-      <el-input class="in" v-model="input" placeholder="Please input" />
+      <el-button type="primary" plain @click="funAdd">Vuex ↑</el-button>
+      <el-tag class="tag" type="danger">{{ num }}</el-tag>
+      <el-tag class="tag" type="danger">{{ bigNum }}</el-tag>
+
     </div>
 </template>
 
 <script lang='ts' setup>
-// 导入mitt
-import emitter from "@/utils/emitter";
+import {computed} from "vue";
+import {useStore} from "@/store";
+const store = useStore()
 
-import { ref } from 'vue'
-const input = ref(2)
 
-function funAdd() {
-  // mitt推送让列表更新
-  emitter.emit("addNum", input.value);
+const num = computed(()=> store.state.byValue.count)
+const bigNum = computed(()=> store.getters["byValue/doubleNum"])
+
+const funAdd = ()=> {
+  store.dispatch('byValue/funcAddOne')
 }
-function funSub() {
-  emitter.emit("subNum", input.value);
-}
+
 
 </script>
 
 <style scoped>
-
-.in{
-  width: 50px;
-  /*margin: 10px auto;*/
+.tag{
+  width: 40px;
+  height: 31px;
+  display: block;
+  line-height: 28px;
 }
+
 .box1_3_1 {
     /*margin:0 auto;*/
     width: 240px;

@@ -12,7 +12,7 @@
 import emitter from "@/utils/emitter";
 
 import { ref } from 'vue'
-const input = ref(2)
+const input = ref(3)
 
 function funAdd() {
   // mitt推送让列表更新
