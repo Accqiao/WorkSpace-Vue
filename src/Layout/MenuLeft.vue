@@ -16,6 +16,12 @@
       <el-icon><setting /></el-icon>
       <template #title>组件传值</template>
     </el-menu-item>
+    <el-menu-item index="bywatch">
+      <el-icon><setting /></el-icon>
+      <template #title>监听</template>
+    </el-menu-item>
+
+
     <el-sub-menu index="hello">
       <template #title>
         <el-icon><Box /></el-icon>
@@ -62,6 +68,10 @@ const handleSelect = (key: string) => {
     case "byvalue":
       router.push('/byvalue')
       break;
+    case "bywatch":
+      router.push('/bywatch')
+      break;
+
     case "hello-home":
       router.push({ path: '/hello/home' })
       break;

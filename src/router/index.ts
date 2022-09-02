@@ -4,6 +4,7 @@ import Layout from '../Layout/LayoutView.vue'
 const HelloWorld = () => import("@/pages/HelloWorld/HelloWorld.vue")
 const ToDoList = () => import("@/pages/ToDoList/ToDoList.vue")
 const ByValue = () => import("@/pages/ByValue/BoxView.vue")
+const ByWatch = () => import("@/pages/ByWatch/WatchView.vue")
 const routes: Array<RouteRecordRaw> = [
   // { path: "/", redirect: "/home" },
   {
@@ -19,7 +20,13 @@ const routes: Array<RouteRecordRaw> = [
         path:'byvalue',
         name:'byvalue',
         component: ByValue
-      }
+      },
+      {
+        path:'bywatch',
+        name:'bywatch',
+        component: ByWatch
+      },
+
     ]
   },
 
